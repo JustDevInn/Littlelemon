@@ -1,0 +1,12 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 20vh;
+    margin: 0px 100px 0px 100px;
+}
+
+ul {
+    padding: 0;
+}

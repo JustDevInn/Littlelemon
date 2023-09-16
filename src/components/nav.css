@@ -1,0 +1,30 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 20vh;
+    margin: 0px 100px 0px 100px;
+}
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.nav-links, a:link {
+    text-decoration: none;
+    margin: 0px 20px 0px 20px;
+}
+li {
+    text-decoration: none;
+    list-style-type: none
+}
+
+a{
+    color: Black;
+}
+a:hover{
+    color: rgb(2, 62, 2);
+}
