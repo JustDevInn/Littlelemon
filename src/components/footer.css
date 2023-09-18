@@ -3,10 +3,13 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    height: 20vh;
-    margin: 0px 100px 0px 100px;
+    height: auto;
+    margin: 50px 200px 50px 200px;
 }
 
-ul {
-    padding: 0;
-}
+
+@media (max-width: 800px) {
+    .footer {
+      flex-direction: column;
+    }
+  }

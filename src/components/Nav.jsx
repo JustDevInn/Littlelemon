@@ -4,11 +4,13 @@ import './nav.css';
 const Nav = () => {
   return (
     <nav>
+    <a href="/">
     <img
-  src="../assets/Logo.svg"
+  src="Logo.svg"
   alt="triangle with all three sides equal"
   height="87"
   width="100" />
+  </a>
     <h2>LITTLE LEMON</h2>
       <ul className='nav-links'>
       <li><a href="/">Home</a></li>

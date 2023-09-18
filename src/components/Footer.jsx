@@ -4,7 +4,7 @@ import './footer.css';
 const Footer = () => {
   return (
     <footer className='footer'>
-      <img src="" alt="Restaurant" width={100} height={150}/>
+      <img src="restaurant.jpg" alt="Restaurant" width={200} height={300} style={{borderRadius:12}}/>
       {/* First link column */}
       <ul className='footer-links'>
       <h5>Doormat navigation</h5>
@@ -17,7 +17,7 @@ const Footer = () => {
       </ul>
 
       {/* Second link column */}
-      <ul>
+      <ul className='footer-links'>
       <h5>Contact</h5>
         <li>Adress</li>
         <li>Phone number</li>
@@ -25,7 +25,7 @@ const Footer = () => {
       </ul>
 
       {/* Third link column */}
-      <ul>
+      <ul className='footer-links'>
       <h5>Social media links</h5>
         <li><a href="https://www.facebook.com/">Facebook</a></li>
         <li><a href="https://www.instagram.com/">Instagram</a></li>
