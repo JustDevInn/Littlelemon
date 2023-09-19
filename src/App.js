@@ -6,7 +6,7 @@ import CallToAction from './components/CallToAction';
 import Specials from './components/Specials';
 import CustomersSay from './components/CustomersSay';
 import Chicago from './components/Chicago';
-import BookingPage from './components/BookingPage';
+import Main from './components/Main';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -17,7 +17,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<CallToAction />} />
       <Route path="specials" element={<Specials />} />
-      <Route path="bookingpage" element={<BookingPage />} />
+      <Route path="bookingpage" element={<Main />} />
     </Routes>
     <CustomersSay />
     <Chicago />

@@ -181,3 +181,37 @@ button:hover {
       margin: 50px;
     }
   }
+
+  /* Bookingform */
+  .bookingformcontainer{
+    margin-top: 20px;
+    padding: 50px;
+    color: black;
+    background-color: #495E57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bookingform{
+    background-color: white;
+    padding: 20px;
+    width: 250px;
+    height: 400px;
+    border-radius: 12px;
+  }
+
+  /* confirmation-message */
+  .confirmation-message{
+      margin-top: 20px;
+      padding: 50px;
+      width: 30vw;
+      color: black;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Karla', sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      border-radius: 12px;
+    }
