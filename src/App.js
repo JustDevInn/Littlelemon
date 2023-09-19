@@ -1,17 +1,30 @@
 import React from 'react';
+import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from './components/Nav';
-import Main from './components/Main';
+import CallToAction from './components/CallToAction';
+import Specials from './components/Specials';
+import CustomersSay from './components/CustomersSay';
+import Chicago from './components/Chicago';
+import BookingPage from './components/BookingPage';
 import Footer from './components/Footer';
-import './App.css'
+import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Nav/>
-      <Main/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+    <Nav/>
+    <Routes>
+      <Route path="/" element={<CallToAction />} />
+      <Route path="specials" element={<Specials />} />
+      <Route path="bookingpage" element={<BookingPage />} />
+    </Routes>
+    <CustomersSay />
+    <Chicago />
+    <Footer/>
+  </BrowserRouter>
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
