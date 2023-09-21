@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../components/main.css';
 
-function BookingForm({ availableTimes, initializeTimes, updateTimes }) {
+function BookingForm({ availableTimes, initializeTimes, updateTimes, submitForm }) {
   const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTime, setSelectedTime] = useState('17:00'); // Default value
+  const [selectedTime, setSelectedTime] = useState('17:00');
   const [showTimeSelection, setShowTimeSelection] = useState(true);
-  const [confirmationMessage, setConfirmationMessage] = useState(null); // Initially no message
+  const [confirmationMessage, setConfirmationMessage] = useState(null);
   const [formData, setFormData] = useState({
     date: '',
     time: '17:00',
@@ -37,16 +37,33 @@ function BookingForm({ availableTimes, initializeTimes, updateTimes }) {
     setShowTimeSelection(true);
   };
 
-  const handleConfirmReservation = () => {
-    // Create the confirmation message based on the form data
-    const confirmation = <div className="confirmation-message">
-    Your reservation has been confirmed for: <br/>
-   {selectedDate}, {selectedTime} <br/>
-     {formData.guests}
-     - persons <br/> Occasion: {formData.occasion}
-  </div>
-    setConfirmationMessage(confirmation);
+  const handleConfirmReservation = async () => {
+    const confirmation = `Your reservation has been confirmed for: ${selectedDate}, ${selectedTime} ${formData.guests} - persons Occasion: ${formData.occasion}`;
+    
+    try {
+      const formDataToSubmit = {
+        date: selectedDate,
+        time: selectedTime,
+        guests: formData.guests,
+        occasion: formData.occasion,
+      };
+
+      const isSubmitted = await submitForm(formDataToSubmit); // Call submitForm with form data
+
+      if (isSubmitted) {
+        setConfirmationMessage(confirmation);
+        console.log('Reservation data sent successfully:', formDataToSubmit);
+      } else {
+        console.error('Error submitting booking data');
+      }
+    } catch (error) {
+      console.error('Error submitting booking data:', error);
+    }
   };
+
+  useEffect(() => {
+    initializeTimes(); // Initialize available times when the component mounts
+  }, [initializeTimes]);
 
   return (
     <div className='bookingformcontainer'>
@@ -66,18 +83,21 @@ function BookingForm({ availableTimes, initializeTimes, updateTimes }) {
           {showTimeSelection ? (
             <>
               <label htmlFor='res-time'>Available Times</label>
-              <ul>
-                {availableTimes.map((time) => (
-                  <li key={time}>
+              <div className="time-button-container">
+                {availableTimes && availableTimes.length > 0 ? (
+                  availableTimes.map((time) => (
                     <button
+                      key={time}
                       onClick={() => handleTimeChange(time)}
                       className={selectedTime === time ? 'selected' : ''}
                     >
                       {time}
                     </button>
-                  </li>
-                ))}
-              </ul>
+                  ))
+                ) : (
+                  <p>No available times.</p>
+                )}
+              </div>
             </>
           ) : (
             <>

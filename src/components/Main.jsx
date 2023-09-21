@@ -1,41 +1,79 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import BookingPage from './BookingPage';
+import BookingForm from './BookingForm'; 
+import { useNavigate } from 'react-router-dom';
 
-// Define a reducer function to update availableTimes based on the selected date
 function availableTimesReducer(state, action) {
-  // For now, return the same available times regardless of the date
-  return [
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00',
-    '22:00',
-  ];
+  if (action.type === 'INITIALIZE') {
+    return [
+      '17:00',
+      '18:00',
+      '19:00',
+      '20:00',
+      '21:00',
+      '22:00',
+    ];
+  } else if (action.type === 'UPDATE') {
+    return [
+      '17:00',
+      '18:00',
+      '19:00',
+      '20:00',
+      '21:00',
+      '22:00',
+    ];
+  }
+  return state;
 }
 
 function Main() {
-  // Initialize the state using useReducer
   const [availableTimes, dispatch] = useReducer(availableTimesReducer, []);
+  const navigate = useNavigate();
 
-  // Create a function to initialize the availableTimes state
   function initializeTimes() {
     dispatch({ type: 'INITIALIZE' });
   }
 
-  // Create a function to update the availableTimes state based on the selected date
   function updateTimes(selectedDate) {
-    // For now, dispatch a state change with the selected date
     dispatch({ type: 'UPDATE', selectedDate });
   }
 
+  async function submitForm(formData) {
+    try {
+      const isSubmitted = await window.submitAPI(formData);
+
+      if (isSubmitted) {
+        navigate('/confirmation');
+      } else {
+        console.error('Error submitting booking data');
+      }
+    } catch (error) {
+      console.error('Error submitting booking data:', error);
+    }
+  }
+
+  useEffect(() => {
+    const apiScript = document.createElement('script');
+    apiScript.src = 'https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js';
+    apiScript.async = true;
+
+    apiScript.addEventListener('load', () => {
+      initializeTimes();
+    });
+
+    document.head.appendChild(apiScript);
+  }, []);
+
   return (
     <div>
-      {/* Pass state and state-changing functions to the BookingPage component */}
       <BookingPage
         availableTimes={availableTimes}
         initializeTimes={initializeTimes}
         updateTimes={updateTimes}
+      />
+      <BookingForm
+        submitForm={submitForm}
+        initializeTimes={initializeTimes} // Pass initializeTimes as a prop
       />
     </div>
   );
