@@ -16,8 +16,8 @@ const Nav = () => {
       <ul className='nav-links'>
       <li><Link to="/">Home</Link></li>
       <li><Link to="/">About</Link></li>
-      <li><Link to="/specials">Menu</Link></li>
-      <li><Link to="/bookingpage">Reservations</Link></li>
+      <li><Link to="/menu">Menu</Link></li>
+      <li><Link to="/reservations">Reservations</Link></li>
       <li><Link to="/">Order-online</Link></li>
       <li><Link to="/">Login</Link></li>
       </ul>

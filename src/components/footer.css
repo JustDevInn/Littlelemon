@@ -13,3 +13,7 @@
       flex-direction: column;
     }
   }
+
+  .footer-links{
+    cursor: pointer;
+  }

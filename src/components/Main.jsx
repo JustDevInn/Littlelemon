@@ -71,10 +71,10 @@ function Main() {
         initializeTimes={initializeTimes}
         updateTimes={updateTimes}
       />
-      <BookingForm
+      {/* <BookingForm
         submitForm={submitForm}
-        initializeTimes={initializeTimes} // Pass initializeTimes as a prop
-      />
+        initializeTimes={initializeTimes} 
+      /> */}
     </div>
   );
 }

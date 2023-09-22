@@ -183,7 +183,7 @@ button:hover {
   }
 
   /* Bookingform */
-  .bookingformcontainer{
+  .bookingformcontainer {
     margin-top: 20px;
     padding: 50px;
     color: black;
@@ -192,42 +192,56 @@ button:hover {
     justify-content: center;
     align-items: center;
   }
-  .bookingform{
+  
+  .bookingform {
     background-color: white;
     padding: 20px;
     width: 250px;
-    height: 400px;
+    height: auto;
+    max-height: 400px; 
+    overflow-y: auto; 
     border-radius: 12px;
   }
-
+  
   /* confirmation-message */
-  .confirmation-message{
-      margin-top: 20px;
-      padding: 50px;
-      width: 30vw;
-      color: black;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Karla', sans-serif;
-      font-size: 2rem;
-      font-weight: bold;
-      border-radius: 12px;
-    }
-
-    .time-button-container {
-      display: flex;
-      overflow-x: auto;
-      max-width: 100%;
-      margin-bottom: 10px;
-    }
-    
-    .time-button-container button {
-      margin-right: 10px;
-    }
-    
-    .time-button-container button:last-child {
-      margin-right: 0;
-    }
-    
+  .confirmation-message {
+    margin-top: 20px;
+    padding: 50px;
+    width: 30vw;
+    color: black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 12px;
+  }
+  
+  .time-button-container {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .time-button-container button {
+    margin-right: 10px;
+  }
+  
+  .time-button-container button:last-child {
+    margin-right: 0;
+  }
+  
+  .input:focus:invalid {
+    border: 2px solid red;
+  }
+  
+  .bookingform > input {
+    margin: 10px 0; 
+  }
+  .bookingform > button {
+    margin-top: 10px; 
+  }
+  

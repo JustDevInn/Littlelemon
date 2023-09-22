@@ -17,8 +17,8 @@ export default function App() {
     <Nav/>
     <Routes>
       <Route path="/" element={<CallToAction />} />
-      <Route path="specials" element={<Specials />} />
-      <Route path="bookingpage" element={<Main />} />
+      <Route path="menu" element={<Specials />} />
+      <Route path="reservations" element={<Main />} />
       <Route path="confirmedbooking" element={<ConfirmedBooking />} />
     </Routes>
     <CustomersSay />
